@@ -1,1 +1,1 @@
-Visit https://kendallalevy.github.io/Hero/docs/WebGLBuild for the WebGLBuild.
+Visit https://kendallalevy.github.io/Hero/WebGLBuild for the WebGLBuild.
