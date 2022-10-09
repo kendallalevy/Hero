@@ -25,6 +25,7 @@ public class arrowMove : MonoBehaviour
         // update mode
         if (Input.GetKeyDown(KeyCode.M)) {
             mode = (mode + 1) % 2;
+            speed = 20;
         }
 
         // key mode
@@ -33,7 +34,7 @@ public class arrowMove : MonoBehaviour
 
             // Change Speed
             speed += Input.GetAxis("Vertical");
-            transform.position += transform.up * (speed * Time.smoothDeltaTime) / 8f;
+            transform.position += transform.up * (speed * Time.smoothDeltaTime) / 7f;
 
         // mouse mode
         } else {

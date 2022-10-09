@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject planeSpawn;
     public GameObject eggSpawn;
+    public GameObject BigEggSpawn;
     public TextMeshProUGUI eggData;
     public TextMeshProUGUI enemyData;
     public Camera cam;
@@ -15,6 +16,8 @@ public class Spawner : MonoBehaviour
     private int totDestroyed;
     private float fireRate;
     private float lastShot;
+    private float bigFireRate;
+    private float lastBigShot;
     private int eggOnScreen;
 
     void Start()
@@ -27,6 +30,7 @@ public class Spawner : MonoBehaviour
 
         // fire rate for egg
         fireRate = 0.2f;
+        bigFireRate = 1f;
     }
 
     // Update is called once per frame
@@ -42,8 +46,14 @@ public class Spawner : MonoBehaviour
         // spawn egg
         if (Input.GetKey(KeyCode.Space) && Time.time - lastShot >= fireRate)
         {
-            instantiateEgg();
+            instantiateEgg(eggSpawn);
             lastShot = Time.time;
+        }
+
+        if (Input.GetKeyDown("f") && Time.time - lastBigShot >= bigFireRate)
+        {
+            instantiateEgg(BigEggSpawn);
+            lastBigShot = Time.time;
         }
 
         // quit
@@ -73,15 +83,15 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0f);
 
         // spawn
-        GameObject plane = Instantiate(planeSpawn, spawnPos, Quaternion.identity);
+        Instantiate(planeSpawn, spawnPos, Quaternion.identity);
     }
 
-    private void instantiateEgg()
+    private void instantiateEgg(GameObject spawnType)
     {
         GameObject arrow = GameObject.FindGameObjectWithTag("Player");
         Vector3 arrowPos = arrow.transform.position;
         Quaternion arrowRotate = arrow.transform.rotation;
-        GameObject egg = Instantiate(eggSpawn, arrowPos, arrowRotate);
+        Instantiate(spawnType, arrowPos, arrowRotate);
         eggOnScreen++;
     }
 

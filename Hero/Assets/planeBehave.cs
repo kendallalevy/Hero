@@ -8,10 +8,10 @@ public class planeBehave : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+
         if (other.gameObject.tag == "egg")
         {
-            // update egg value & destroy
-            Spawner s = GameObject.FindGameObjectWithTag("spawner").GetComponent<Spawner>();
+            // destroy
             Destroy(other.gameObject);
 
             // update alpha
@@ -22,11 +22,22 @@ public class planeBehave : MonoBehaviour
             // if hit 4 times
             if (c.a == 0) {
                 // update plane value & destroy
+                Spawner s = GameObject.FindGameObjectWithTag("spawner").GetComponent<Spawner>();
                 s.decrementPlane();
                 Destroy(this.gameObject);
                 return;
             }
             r.material.color = c;
+        }
+        else if (other.gameObject.tag == "bigEgg")
+        {
+            // destroy
+            Destroy(other.gameObject);
+
+            // update plane value & destroy
+            Spawner s = GameObject.FindGameObjectWithTag("spawner").GetComponent<Spawner>();
+            s.decrementPlane();
+            Destroy(this.gameObject);
         }
     }
 }

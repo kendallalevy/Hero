@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeSpawn: {fileID: 5180498318090722188, guid: 129fc435ff527a64dabebffa89519237, type: 3}
   eggSpawn: {fileID: 8481800313632252698, guid: 1ea331acb41ae9045a84009ff98336a2, type: 3}
+  BigEggSpawn: {fileID: 580080061872597333, guid: d03f804095d57714482ac69ad1ca1806, type: 3}
   eggData: {fileID: 907935519}
   enemyData: {fileID: 1690206843}
   cam: {fileID: 519420031}

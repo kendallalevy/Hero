@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eggScript : MonoBehaviour
+public class BigEggScript : MonoBehaviour
 {
     public int speed;
 
@@ -22,5 +22,4 @@ public class eggScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
 }
